@@ -8,7 +8,7 @@ click-plugins==1.1.1
 click-repl==0.2.0
 dj-database-url==1.2.0
 Django==3.2
-django-ckeditor==6.5.1
+django-ckeditor==5.7.0
 django-heroku==0.3.1
 django-js-asset==2.0.0
 django-timezone-field==5.0
