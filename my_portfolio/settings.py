@@ -114,8 +114,8 @@ DATABASES = {
         'NAME': "portfolio_db",
         'USER': "mikky",
         'PASSWORD': "password1",
-        'HOST': 'localhost',
-        'PORT': '5432',
+        #'HOST': 'localhost',
+        #'PORT': '5432',
     }
 }
 
