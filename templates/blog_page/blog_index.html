@@ -1,0 +1,92 @@
+
+{% extends '../base.html' %}
+{% load static %}
+{% block title %} MikkyTechie | Blog {% endblock %}
+
+{% block content %}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Blog</li>
+        </ol>
+      </nav>
+    <div class="row">
+        
+        <div class="col-8">
+            {% for post in posts %}
+            <div class="container mt-4">
+                <div class="mycard p-3 w-100">
+                    
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            <div class="position-relative snipimage">
+                                <img src="{{ post.photo.url }}" class="rounded img-fluid w-100 img-responsive">
+                                <span class="position-absolute user-timing">{{ post.date_created }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="mt-2">
+                              <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-1"><a style="color: #007bff; text-decoration: none;" href="{% url 'blog-id' post.id %}">{{ post.title }}</a></h4>
+                                <span><i class="fa fa-heart text-danger"></i> </span>
+                              </div>
+
+                              <div class="d-flex justify-content-between align-items-center">
+                                <p class="mb-1">{{ post.category.name }}</p>
+                                
+                              </div>
+                              
+                              <div class="d-flex justify-content-md-start justify-content-between views-content mt-2">
+                                  <div class="d-flex flex-row align-items-center">
+            
+                                      
+                                  </div>
+                                  <div class="d-flex flex-row align-items-center ms-2">
+                                      <i class="fa fa-heart"></i>
+                                      <span class="ms-1 views">{{ post.user_like_post.count }}</span>
+                                  </div>
+                                  <div class="d-flex flex-row align-items-center ms-2">
+                                    <i class="fa fa-comment"></i>
+                                    <span class="ms-1 views">{{ post.post.count }}</span>
+                                </div>
+                              </div>
+                              <div class="d-flex flex-row mt-3">
+                                  <img src="{% static 'images/img_acc.png' %}" width="50" class="rounded-circle">
+                                  <div class="ms-2 d-flex flex-column">
+                                     <div class="d-flex flex-row align-items-center">
+                                          <h6>{{ post.user.username }}</h6>
+                                      <span class="dots"></span>
+                                     </div>
+                                     <span class="days-ago">{{ post.date_created|timesince }} Ago</span>
+                                  </div> 
+                              </div>
+                              <br>
+                              <div class="d-flex justify-content-between align-items-center">
+                                <span class="mb-1" style="text-align: left; text-justify: left;">{{ post.description|safe|truncatewords:"18"|linebreaks }}</span><a href="{% url 'blog-id' post.id %}" class="btn btn-primary">more</a>
+                                
+                              </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                
+
+            </div>
+            {% endfor %}
+        </div> 
+        
+        
+        <div class="col-md-4 grid-margin stretch-card">
+            {% include './category.html' %}
+        </div>
+    </div>
+    {% include './pagination.html' %}
+</div>
+
+
+{% endblock %}

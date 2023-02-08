@@ -1,0 +1,15 @@
+<div class="pagination_rounded">
+    <ul>
+        {% if posts.has_previous %}
+        <li>
+            <a href="?{{ page_request_var }}={{ posts.previous_page_number }}" class="prev"> <i class="fa fa-angle-left" aria-hidden="true"></i> Prev </a>
+        </li>
+        {% endif %}
+        <li><a href="?{{ page_request_var }}={{ posts.number }}">{{ posts.number }}</a>
+        </li>
+        {% if posts.has_next %}
+        <li><a href="?{{ page_request_var }}={{ posts.next_page_number }}" class="next"> Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        </li>
+        {% endif %}
+    </ul>
+</div>

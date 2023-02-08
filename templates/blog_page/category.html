@@ -1,0 +1,42 @@
+
+    
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Category</h4>
+                  <p class="card-description">For what reason would it be advisable for me to think about business content</p>
+                  <div class="template-demo">
+                    <table class="table mb-0">
+                      <thead>
+                        <tr>
+                          <th class="pl-0">Category</th>
+                          <th class="text-right">Number</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for ca in cat %}
+                        <tr>
+                          <td class="pl-0">{{ ca.name }}</td>
+                          <td class="pr-0 text-right">
+                            {% if ca.name == 'Technology' %}
+                            <div class="badge badge-primary badge-pill">{{ ca.category.count }}</div>
+                            {% elif ca.name == 'Entertainment' %}
+                            <div class="badge badge-danger badge-pill">{{ ca.category.count }}</div>
+                            {% elif ca.name == 'Business' %}
+                            <div class="badge badge-success badge-pill">{{ ca.category.count }}</div>
+                            {% elif ca.name == 'Politics' %}
+                            <div class="badge badge-secondary badge-pill">{{ ca.category.count }}</div>
+                            {% elif ca.name == 'Fashion' %}
+                            <div class="badge badge-info badge-pill">{{ ca.category.count }}</div>
+                            {% elif ca.name == 'Gadget' %}
+                            <div class="badge badge-warning badge-pill">{{ ca.category.count }}</div>
+                            {% endif %}
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+        
+       

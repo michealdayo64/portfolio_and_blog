@@ -1,0 +1,53 @@
+
+.pic-text{
+    display: flex;
+    justify-content: flex-start;
+    height: 90px;
+    
+}
+
+.pic-text .mm{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+#show-messageId{
+    display: none;
+}
+
+.pic-text img{
+    width: 70px;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.pic-text .comment-text{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pic-text .comment-text h5{
+    color: #007bff;
+}
+
+.popular{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.popular img{
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+}
+
+.popular .post{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

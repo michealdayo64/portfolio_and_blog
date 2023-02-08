@@ -1,0 +1,143 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title %} MikkyTechie | Blog - Detail {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'blog-index' %}">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Detail</li>
+        </ol>
+      </nav>
+      <div class="container" id="show-messageId">
+        <div class="alert alert-success alert-dismissable" role="alert">
+            <button class="close" data-dismiss="alert">
+                <small><sup>x</sup></small>
+            </button>
+            you need to be logged in to like a post
+        </div>
+    </div>
+    <br>
+    <!--Post-->
+    <div class="row">
+        <div class="col-md-8 card h-100">
+            <div class="card w-100">
+                <img src="{{ post_id.photo.url }}" width="100%" height="400px" alt="">
+                
+            
+            </div>
+            <br>
+            {% if post_id.file_upload %}
+            <audio controls>
+                <source src="{{ post_id.file_upload.url }}" type="audio/mpeg">
+            </audio>
+            {% endif %}
+            <br>
+            <div id="view-link">
+                <span class="" style="text-align: left; display: flex; align-items: center; color: #07013c;">
+                    
+                    <span>
+                        {{ total_views }}
+                    </span>
+                    view{{ total_views|pluralize }}
+                    
+                    <div class="like-unlike" id="post-like"><img src="{% static 'images/like.png' %}" alt="" srcset=""><span id="like-count"></span></div>
+                </span>
+                {% if post_id.file_upload %}
+                <a href="{{ post_id.file_upload.url }}" download="{{ post_id.file_upload.url }}" class="btn btn-primary" target="_blank">Download</a>
+                {% endif %}
+            </div>
+            <h1>{{ post_id.title }}</h1>
+            <p style="color: #07013c;">{{ post_id.description|safe }}</p>
+            <form action="" method="post">{% csrf_token %}
+                <input type="text" style="width: 360px;" placeholder="Email" id="myemail">
+                <br>
+                <br>
+            <div class="form-row">
+                
+                <div class="col-md-8 mb-6">
+                    
+      <textarea name="comment" aria-placeholder="Comment" id="mycomment" cols="40" placeholder="Comment Here" rows="5"></textarea>
+                    
+                </div>
+                
+            </div>
+            <button type="submit" class="btn btn-primary" id="comment-post">Send</button>
+        </form>
+        <br>
+        </div>
+            
+            
+            <div class="col-md-3 ml-3">
+                <div class="card" style="margin-top: -4px; padding: 10px; height: 150px;">
+                    <h4>Category</h4>
+               <div>
+                {% for ca in cat %}
+                <span class="badge badge-pill badge-primary">{{ ca.name }}</span>
+                {% endfor %}
+               </div>
+               <br>
+                </div>
+                <br>
+                <br>
+                <div class="card" style="margin-top: -4px; padding: 10px; height: 150px;">
+                    <h4>Popular Post</h4>
+                    <div class="popular">
+                        <img src="{% static 'images/smart.jpeg' %}" alt="" srcset="">
+                        <div class="post">
+                            <h5>dhdhhddd</h5>
+                            <p>hdhdhdh</p>
+                            
+                        </div>
+                    </div>
+                </div>
+               
+        </div>
+
+        
+        
+    </div>
+    <!-- COMMENT -->
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-8 card h-100">
+            <h2>Comments</h2>
+            <br>
+            {% if all_comments %}
+            {% for com in all_comments %}
+            <div class="pic-text" id="comm-text">
+                
+                <img src="{% static 'images/avatar.jpeg' %}" alt="" srcset="" alt="hello">
+                <div class="comment-text">
+                    <h5>{{ com.email }}</h5>
+                    <span>{{ com.comment }}</span>
+                    <span>{{ com.date_created|timesince }} Ago</span>
+                
+            </div>
+                
+            </div>
+            <br>
+            {% endfor %}
+            {% else %}
+            <div class="pic-text">
+                <h3>No Comment Yet!!!</h3>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="col-md-4">
+            
+        </div>
+    </div>
+    
+</div>
+{{ post_id.id|json_script:"mypost_id" }}
+
+<script src="{% static 'js/post_comment.js' %}"></script>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} MikkyTechie | Portfolio {% endblock %}
+{% block content %}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+        </ol>
+      </nav>
+</div>
+
+{% include './port_section1.html' %}
+{% include './port_section3.html' %}
+{% include './port_section2.html' %}
+
+
+
+{% endblock %}

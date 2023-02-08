@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} MikkyTechie {% endblock %}
+{% block content %}
+{% if messages %}
+{% for messege in messages %}
+    <div class="container">
+        <div class="alert alert-success alert-dismissable" role="alert">
+            <button class="close" data-dismiss="alert">
+                <small><sup>x</sup></small>
+            </button>
+            {{ messege }}
+        </div>
+    </div>
+{% endfor %}
+{% endif %}
+{% include './section1.html' %}
+{% include './section2.html' %}
+{% include './section4.html' %}
+{% include './newsletter.html' %}
+{% include './section3.html' %}
+
+{% endblock %}
