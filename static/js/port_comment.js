@@ -6,6 +6,7 @@ const proj_id = JSON.parse(document.getElementById("myproj_id").textContent);
 const postLike = document.getElementById("post-like");
 const likeCount = document.getElementById("like-count");
 const showMessage = document.getElementById("show-messageId");
+var commentImg = document.getElementById("comment-img");
 
 // USER LIKE COUNT
 const getLikeCount = () => {
@@ -20,7 +21,8 @@ const getLikeCount = () => {
 
 getLikeCount();
 
-const pic = "{% static 'images/avatar.jpeg' %}";
+commentImg.src = "{% static 'images/avatar.jpeg' %}".replace(/&amp;/g, "&");
+
 let myEmailInput;
 let myCommentInput;
 
@@ -53,7 +55,7 @@ btnComment.addEventListener("click", (e) => {
         var bb = document.createElement("div");
         bb.classList.add("mm");
         bb.innerHTML = `
-        <img src="${pic}" alt="" srcset="" alt="hello">
+        <img src="${commentImg.src}" alt="" srcset="" alt="hello">
             <div class="comment-text">
                 <h5>${json_data["email"]}</h5>
                 <span>${json_data["comment"]}</span>
