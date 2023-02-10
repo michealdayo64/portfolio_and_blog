@@ -8,9 +8,10 @@ const likeCount = document.getElementById("like-count");
 const showMessage = document.getElementById("show-messageId");
 var commentImg = document.getElementById("comment-img");
 
+const url = window.location.origin;
 // USER LIKE COUNT
 const getLikeCount = () => {
-  fetch(`http://127.0.0.1:8000/port_like_count/${proj_id}/`, {
+  fetch(`${url}/port_like_count/${proj_id}/`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -21,7 +22,7 @@ const getLikeCount = () => {
 
 getLikeCount();
 
-commentImg.src = "{% static 'images/avatar.jpeg' %}".replace(/&amp;/g, "&");
+console.log(commentImg.src);
 
 let myEmailInput;
 let myCommentInput;
@@ -40,7 +41,7 @@ comment.addEventListener("keyup", (e) => {
 btnComment.addEventListener("click", (e) => {
   e.preventDefault();
 
-  fetch(`http://127.0.0.1:8000/port-comment/${proj_id}/`, {
+  fetch(`${url}/port-comment/${proj_id}/`, {
     body: JSON.stringify({
       email: myEmailInput,
       comment: myCommentInput,
@@ -77,7 +78,7 @@ function myGreeting() {
 // BUTTON TO LIKE
 postLike.addEventListener("click", (e) => {
   e.preventDefault();
-  fetch(`http://127.0.0.1:8000/port_like_unlike/${proj_id}/`, {
+  fetch(`${url}/port_like_unlike/${proj_id}/`, {
     body: null,
     method: "POST",
   })

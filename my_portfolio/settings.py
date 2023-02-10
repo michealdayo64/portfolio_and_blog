@@ -26,7 +26,7 @@ SECRET_KEY = 'm9h(1_qk!c&a8v2pyi=+q5ti$5u_vt5&c3%57_-bo1=9nl8ts+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.84.201.61']
+ALLOWED_HOSTS = []
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
@@ -112,7 +112,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': "portfolio_db",
-        'USER': "mikky",
+        'USER': "dayo",
         'PASSWORD': "password",
         'HOST': 'localhost',
         'PORT': '5432',

@@ -6,10 +6,14 @@ const post_id = JSON.parse(document.getElementById("mypost_id").textContent);
 const postLike = document.getElementById("post-like");
 const likeCount = document.getElementById("like-count");
 const showMessage = document.getElementById("show-messageId");
+var pic = document.getElementById("mypic");
+
+var picImg = pic.src;
+const url = window.location.origin;
 
 // USER LIKE COUNT
 const getLikeCount = () => {
-  fetch(`http://127.0.0.1:8000/like_count/${post_id}/`, {
+  fetch(`${url}/like_count/${post_id}/`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -20,7 +24,6 @@ const getLikeCount = () => {
 
 getLikeCount();
 
-const pic = "{% static 'images/avatar.jpeg' %}";
 let myEmailInput;
 let myCommentInput;
 
@@ -38,7 +41,7 @@ comment.addEventListener("keyup", (e) => {
 btnComment.addEventListener("click", (e) => {
   e.preventDefault();
 
-  fetch(`http://127.0.0.1:8000/post-comment/${post_id}/`, {
+  fetch(`${url}/post-comment/${post_id}/`, {
     body: JSON.stringify({
       email: myEmailInput,
       comment: myCommentInput,
@@ -53,14 +56,14 @@ btnComment.addEventListener("click", (e) => {
         var bb = document.createElement("div");
         bb.classList.add("mm");
         bb.innerHTML = `
-        <img src="${pic}" alt="" srcset="" alt="hello">
+        <img src="${picImg}" alt="" srcset="" alt="hello">
             <div class="comment-text">
                 <h5>${json_data["email"]}</h5>
                 <span>${json_data["comment"]}</span>
                 <span>${json_data["date"]}</span>
             </div>
         `;
-        picText.insertBefore(bb, picText.firstChild);
+        picText.appendChild(bb, picText.lastChild);
         console.log("posted");
       }
       email.value = "";
@@ -75,7 +78,7 @@ function myGreeting() {
 // BUTTON TO LIKE
 postLike.addEventListener("click", (e) => {
   e.preventDefault();
-  fetch(`http://127.0.0.1:8000/like_unlike/${post_id}/`, {
+  fetch(`${url}/like_unlike/${post_id}/`, {
     body: null,
     method: "POST",
   })

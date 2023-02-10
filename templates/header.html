@@ -69,8 +69,11 @@
                     <li class="nav-item"> <a class="nav-link" href="{% url 'port-index' %}" data-abc="true">My Portfolio</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="{% url 'contact-page' %}" data-abc="true">Contact</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="" data-abc="true">About</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-abc="true">
-                        <a href="{% url 'reset-password' %}">Reset Pass</a>
+                    </ul>
+                    <ul class="navbar-nav mr-right">
+                        {% if request.user.authenticated %}
+                    <li class="nav-item"> <a class="nav-link btn btn-primary" data-abc="true" href="{% url 'reset-password' %}">Reset Password</a>
+                        {% endif %}
                     </li>
                 </ul>
             </div>

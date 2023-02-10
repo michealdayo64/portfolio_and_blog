@@ -108,12 +108,13 @@
             <div class="pic-text" id="comm-text">
                 
                 <img src="{% static 'images/avatar.jpeg' %}" alt="" id="comment-img" srcset="" alt="hello">
+                {% if com %}
                 <div class="comment-text">
                     <h5>{{ com.email }}</h5>
                     <span>{{ com.comment }}</span>
                     <span>{{ com.date_created|timesince }} Ago</span>
                 </div>
-                
+                {% endif %}
                 
             </div>
             <br>

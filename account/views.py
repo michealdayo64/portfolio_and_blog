@@ -133,6 +133,7 @@ def resetPassword(request):
             redirect("reset-password")
     else:
         messages.warning(request, "User is not authenticatedtan")
+        redirect("index")
     return render(request, 'auth/reset_password.html')
 
 def forgetPassword(request):
