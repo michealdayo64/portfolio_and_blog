@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 #DEBUG = True
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['54.175.222.217']
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
