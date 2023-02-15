@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     #THIRD PARTY PACKAGES
     'ckeditor', # CKEditor config
     'ckeditor_uploader',
+    'storages'
 ]
 
 MIDDLEWARE = [
