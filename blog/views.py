@@ -62,7 +62,7 @@ def blog_list(request):
 def blog_detail(request, id):
     blog_id = get_object_or_404(Post, id = id)
     num_likes = blog_id.user_like_post.count()
-    all_comments = PostComment.objects.filter(post = blog_id)
+    all_comments = PostComment.objects.filter(post = blog_id).order_by('-date_created')
     category_list = Category.objects.all()
     email = request.POST.get("email")
     comment = request.POST.get("comment")

@@ -28,6 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['34.233.64.115']
+#ALLOWED_HOSTS = []
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
@@ -111,16 +112,7 @@ WSGI_APPLICATION = f'{config("PROJECT_NAME")}.wsgi.application'
     }
 }'''
 
-'''DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "portfolio_db",
-        'USER': "dayo",
-        'PASSWORD': "password",
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}'''
+
 
 DATABASES = {
     'default': {
@@ -248,4 +240,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 
-#django_heroku.settings(locals())
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+
+AWS_STORAGE_BUCKET_NAME = 'emarketphotos'
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'

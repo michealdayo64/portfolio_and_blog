@@ -1,14 +1,14 @@
-const comment = document.getElementById("mycomment");
-const btnComment = document.getElementById("comment-post");
-const email = document.getElementById("myemail");
+//const comment = document.getElementById("mycomment");
+//const btnComment = document.getElementById("comment-post");
+//const email = document.getElementById("myemail");
 const picText = document.getElementById("comm-text");
 const post_id = JSON.parse(document.getElementById("mypost_id").textContent);
 const postLike = document.getElementById("post-like");
 const likeCount = document.getElementById("like-count");
 const showMessage = document.getElementById("show-messageId");
-var pic = document.getElementById("mypic");
+//var pic = document.getElementById("mypic");
 
-var picImg = pic.src;
+//var picImg = pic.src;
 const url = window.location.origin;
 
 // USER LIKE COUNT
@@ -24,21 +24,21 @@ const getLikeCount = () => {
 
 getLikeCount();
 
-let myEmailInput;
-let myCommentInput;
+//let myEmailInput;
+//let myCommentInput;
 
 //  INPUT EMAIL HERE
-email.addEventListener("keyup", (e) => {
+/*email.addEventListener("keyup", (e) => {
   myEmailInput = e.target.value;
-});
+});*/
 
 // INPUT COMMENT HERE
-comment.addEventListener("keyup", (e) => {
+/*comment.addEventListener("keyup", (e) => {
   myCommentInput = e.target.value;
-});
+});*/
 
-// BUTTON TO SEND COMMENT
-btnComment.addEventListener("click", (e) => {
+/*/ BUTTON TO SEND COMMENT
+/btnComment.addEventListener("click", (e) => {
   e.preventDefault();
 
   fetch(`${url}/post-comment/${post_id}/`, {
@@ -69,7 +69,7 @@ btnComment.addEventListener("click", (e) => {
       email.value = "";
       comment.value = "";
     });
-});
+});*/
 
 function myGreeting() {
   showMessage.style.display = "none";
