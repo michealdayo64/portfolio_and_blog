@@ -37,8 +37,8 @@ getLikeCount();
   myCommentInput = e.target.value;
 });*/
 
-/*/ BUTTON TO SEND COMMENT
-/btnComment.addEventListener("click", (e) => {
+/* BUTTON TO SEND COMMENT
+btnComment.addEventListener("click", (e) => {
   e.preventDefault();
 
   fetch(`${url}/post-comment/${post_id}/`, {
