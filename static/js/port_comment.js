@@ -27,50 +27,6 @@ console.log(commentImg.src);
 let myEmailInput;
 let myCommentInput;
 
-//  INPUT EMAIL HERE
-//email.addEventListener("keyup", (e) => {
-//myEmailInput = e.target.value;
-//});
-
-// INPUT COMMENT HERE
-//comment.addEventListener("keyup", (e) => {
-myCommentInput = e.target.value;
-//});
-
-// BUTTON TO SEND COMMENT
-/*btnComment.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  fetch(`${url}/port-comment/${proj_id}/`, {
-    body: JSON.stringify({
-      email: myEmailInput,
-      comment: myCommentInput,
-    }),
-    method: "POST",
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      let json_data = JSON.parse(data);
-      console.log(json_data);
-      if (json_data) {
-        var bb = document.createElement("div");
-        bb.classList.add("mm");
-        bb.innerHTML = `
-        <img src="${commentImg.src}" alt="" srcset="" alt="hello">
-            <div class="comment-text">
-                <h5>${json_data["email"]}</h5>
-                <span>${json_data["comment"]}</span>
-                <span>${json_data["date"]}</span>
-            </div>
-        `;
-        picText.insertBefore(bb, picText.firstChild);
-        console.log("posted");
-      }
-      email.value = "";
-      comment.value = "";
-    });
-});*/
-
 function myGreeting() {
   showMessage.style.display = "none";
 }
