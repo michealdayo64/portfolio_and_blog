@@ -169,6 +169,38 @@ def likeCount(request, id):
         }
         return JsonResponse(data = data, safe=False)
 
+
+def searchBlog(request):
+    if request.method == "POST":
+        data_json = json.loads(request.body)
+        searchData = data_json.get('search')
+
+        search = Post.objects.filter(title__icontains = searchData) | Post.objects.filter(description__icontains = searchData) | Post.objects.filter(category__name__icontains = searchData)
+        print(search)
+        result = []
+        if(search):
+            for i in search:
+                data = {
+                    'category': i.category.name,
+                    'user': i.user,
+                    'title': i.title,
+                    'description': i.description,
+                    'photo': i.photo.url,
+                    'user_like_post': i.user_like_post.count(),
+                    'date_publish': str(timesince.timesince(i.date_publish)),
+                    'date_created': str(i.date_created),
+                    'comment_count': i.post.count(),
+                    'id': i.pk
+                }
+                result.append(data)
+            return JsonResponse(json.dumps(result, indent=4, sort_keys=True, default=str), safe=False)
+        else:
+            data = {
+                'resErr': 'You can not send an empty data'
+            }
+            return JsonResponse(json.dumps(data, indent=4, sort_keys=True, default=str), safe=False)
+        
+
     
     
 

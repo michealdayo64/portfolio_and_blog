@@ -20,7 +20,7 @@ def port_index(request):
 
 def port_detail(request, id):
     proj_id = get_object_or_404(Project, id = id)
-    all_comments = ProjectComment.objects.filter(post = proj_id)
+    all_comments = ProjectComment.objects.filter(post = proj_id).order_by('-date_created')
     category_list = Category.objects.all()
     email = request.POST.get("email")
     comment = request.POST.get("comment")

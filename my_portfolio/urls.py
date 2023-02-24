@@ -19,7 +19,7 @@ from django.urls import path, re_path, include
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.conf import settings
-from blog.views import index, blog_list, blog_detail, post_comment, like_unlike_post, likeCount
+from blog.views import index, blog_list, blog_detail, post_comment, like_unlike_post, likeCount, searchBlog
 from portfolio.views import port_index, port_detail, port_read_more, port_comment, port_like_unlike, port_likeCount
 from account.views import register, login_page, logout_page, activate, resetPassword
 from contact.views import contact_message
@@ -47,6 +47,7 @@ urlpatterns = [
     path('port_like_unlike/<id>/', csrf_exempt(port_like_unlike), name = 'port_like_unlike'),
     path('port_like_count/<id>/', port_likeCount, name = 'port_like_count'),
     path('contact-page/', contact_message, name = 'contact-page'),
+    path('search-block/', csrf_exempt(searchBlog), name = 'search-blog'),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

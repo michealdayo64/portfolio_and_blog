@@ -28,17 +28,17 @@ let myEmailInput;
 let myCommentInput;
 
 //  INPUT EMAIL HERE
-email.addEventListener("keyup", (e) => {
-  myEmailInput = e.target.value;
-});
+//email.addEventListener("keyup", (e) => {
+//myEmailInput = e.target.value;
+//});
 
 // INPUT COMMENT HERE
-comment.addEventListener("keyup", (e) => {
-  myCommentInput = e.target.value;
-});
+//comment.addEventListener("keyup", (e) => {
+myCommentInput = e.target.value;
+//});
 
 // BUTTON TO SEND COMMENT
-btnComment.addEventListener("click", (e) => {
+/*btnComment.addEventListener("click", (e) => {
   e.preventDefault();
 
   fetch(`${url}/port-comment/${proj_id}/`, {
@@ -69,7 +69,7 @@ btnComment.addEventListener("click", (e) => {
       email.value = "";
       comment.value = "";
     });
-});
+});*/
 
 function myGreeting() {
   showMessage.style.display = "none";

@@ -4,7 +4,7 @@
 
 {% block content %}
   
- 
+{% include 'header.html' %}
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -48,14 +48,14 @@
             <p style="color: #07013c;">{{ proj_id.description|safe }}</p>
             <div>
             <form action="" method="post">{% csrf_token %}
-                <input type="text" style="width: 360px;" placeholder="Email" id="myemail">
+                <input type="text" style="width: 360px;" placeholder="Email" name="email" id="myemail">
                 <br>
                 <br>
             <div class="form-row">
                 
                 <div class="col-md-8 mb-6">
                     
-      <textarea aria-placeholder="Comment" id="mycomment" cols="40" rows="5"></textarea>
+      <textarea aria-placeholder="Comment" id="mycomment" name="comment" cols="40" rows="5"></textarea>
                     
                 </div>
                 

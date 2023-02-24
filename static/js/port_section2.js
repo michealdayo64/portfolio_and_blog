@@ -3,6 +3,8 @@ let portBox = document.getElementById("port-box");
 let spinnerBox = document.getElementById("spinner-box");
 const readMoreBtn = document.getElementById("btnReadMore");
 
+const url = window.location.origin;
+
 const handleGetData = () => {
   //spinnerBox.style.display = "block";
   // OR
@@ -31,9 +33,7 @@ const handleGetData = () => {
                             }</span>
           </div> 
           <br>
-          <a href="http://127.0.0.1:8000/port-detail/${
-            p["id"]
-          }/" class="my-card-btn">View</a>
+          <a href="${url}/port-detail/${p["id"]}/" class="my-card-btn">View</a>
       </div>
   </div>
   </div>`;
