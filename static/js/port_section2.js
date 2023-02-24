@@ -10,7 +10,7 @@ const handleGetData = () => {
   // OR
   spinnerBox.classList.add("spinner-border");
 
-  fetch(`http://127.0.0.1:8000/read-more/${readMoreValue}/`, {
+  fetch(`${url}/read-more/${readMoreValue}/`, {
     method: "GET",
   })
     .then((res) => res.json())
