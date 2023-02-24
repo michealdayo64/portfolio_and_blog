@@ -22,8 +22,6 @@ const getLikeCount = () => {
 
 getLikeCount();
 
-console.log(commentImg.src);
-
 let myEmailInput;
 let myCommentInput;
 
