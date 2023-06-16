@@ -1,6 +1,6 @@
 # portfolio_and_blog
 This a portfolio blog built using python, django, json, postgresql, html, css, javascript. In this project, i was able to upload my project and also talk about. Users can also comment on project viewed.
-There is also blogging system where users can read article and comment on article. Images and some features of the system is shown below.
+There is also blogging system where users can read article and comment on article. Images and some features of the system is shown below...
 
 1. Home Page
 ![Screen Shot 2023-06-14 at 1 31 44 AM](https://github.com/michealdayo64/portfolio_and_blog/assets/55289122/77a99b24-4a40-4523-ab77-e3ce0dcc5a2a)
